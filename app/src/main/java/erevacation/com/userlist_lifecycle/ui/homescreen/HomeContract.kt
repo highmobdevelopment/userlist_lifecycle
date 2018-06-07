@@ -1,14 +1,14 @@
 package erevacation.com.userlist_lifecycle.ui.homescreen
 
-import erevacation.com.userlist_lifecycle.basic.arhitecture.ViperContract
+import erevacation.com.userlist_lifecycle.basic.arhitecture.CleanArchitectureContract
 
 interface HomeContract {
 
-    interface HomeView : ViperContract.View<HomePresenter> {
+    interface HomeView : CleanArchitectureContract.View {
 
     }
 
-    interface HomePresenter : ViperContract.Presenter {
+    interface HomeViewModel {
         fun buildLayout()
     }
 }

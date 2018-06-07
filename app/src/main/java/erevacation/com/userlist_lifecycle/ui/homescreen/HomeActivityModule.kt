@@ -6,7 +6,7 @@ import dagger.Provides
 @Module
 class HomeActivityModule {
     @Provides
-    internal fun provideHomePresenter(): HomeContract.HomePresenter {
-        return HomeActivityPresenter()
+    internal fun provideHomePresenter(): HomeContract.HomeViewModel {
+        return HomeActivityViewModel()
     }
 }
