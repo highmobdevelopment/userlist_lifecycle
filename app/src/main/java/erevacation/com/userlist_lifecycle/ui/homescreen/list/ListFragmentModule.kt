@@ -7,7 +7,7 @@ import erevacation.com.userlist_lifecycle.usecase.ListUC
 import javax.inject.Named
 
 @Module
-abstract class ListFragmentModule {
+class ListFragmentModule {
 
     private lateinit var listUC: ListUC
     @Provides

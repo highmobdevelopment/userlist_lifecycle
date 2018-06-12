@@ -9,14 +9,16 @@ import javax.inject.Inject
 
 class ListFragmentViewModel @Inject constructor(val listUC: ListUC) : ViewModel(), ListUCContract.ListUCOut, ListContract.ListViewModel {
 
-
+init {
+    listUC.setListUCOut(this)
+}
     override fun publishListResults(list: MutableList<ListDM>) {
-        contacts?.value?.addAll(list)
+        contacts.value = list
     }
 
-    private var contacts: MutableLiveData<MutableList<ListDM>>? = null
-    fun getUsers(): MutableLiveData<MutableList<ListDM>>? {
-        if (contacts == null) {
+    private lateinit var contacts: MutableLiveData<MutableList<ListDM>>
+    fun getUsers(): MutableLiveData<MutableList<ListDM>> {
+        if (!::contacts.isInitialized) {
             contacts = MutableLiveData()
             listUC.getList()
         }

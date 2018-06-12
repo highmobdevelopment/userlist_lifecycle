@@ -22,7 +22,7 @@ class ListFragment : BasicFragment<ListFragmentViewModel, FragmentListBinding>()
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = getViewModel(viewModelFactory)
-        viewModel.getUsers()?.observe(this, Observer { user ->
+        viewModel.getUsers().observe(this, Observer { user ->
             listAdapter.updateList(user ?: mutableListOf())
         })
         buildLayout()
