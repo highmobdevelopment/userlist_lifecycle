@@ -1,6 +1,8 @@
 package erevacation.com.userlist_lifecycle.basic
 
 import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
@@ -10,15 +12,13 @@ import android.view.View
 import android.view.ViewGroup
 import dagger.android.support.AndroidSupportInjection
 import erevacation.com.userlist_lifecycle.basic.arhitecture.CleanArchitectureContract
-import javax.inject.Inject
 
-abstract class BasicFragment <VM : ViewModel, B: ViewDataBinding> : Fragment(), CleanArchitectureContract.View {
+abstract class BasicFragment<VM : ViewModel, B : ViewDataBinding> : Fragment(), CleanArchitectureContract.View {
 
-    //@Inject
-    protected var viewModel: VM? = null
     var binding: B? = null
+    protected lateinit var viewModel: VM
 
-    abstract fun getLayoutId():Int
+    abstract fun getLayoutId(): Int
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         AndroidSupportInjection.inject(this)
@@ -31,7 +31,12 @@ abstract class BasicFragment <VM : ViewModel, B: ViewDataBinding> : Fragment(), 
     }
 
 
-    private fun bindLayout(inflater: LayoutInflater, container: ViewGroup?){
+    private fun bindLayout(inflater: LayoutInflater, container: ViewGroup?) {
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
     }
+
+    protected inline fun <reified VM : ViewModel> getViewModel(
+            viewModelFactory: ViewModelProvider.Factory
+    ): VM =
+            ViewModelProviders.of(this, viewModelFactory)[VM::class.java]
 }

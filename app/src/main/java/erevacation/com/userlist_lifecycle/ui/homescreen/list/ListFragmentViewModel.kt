@@ -3,12 +3,11 @@ package erevacation.com.userlist_lifecycle.ui.homescreen.list
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import erevacation.com.userlist_lifecycle.datamodel.ListDM
-import erevacation.com.userlist_lifecycle.ui.homescreen.HomeContract
 import erevacation.com.userlist_lifecycle.usecase.ListUC
 import erevacation.com.userlist_lifecycle.usecase.ListUCContract
 import javax.inject.Inject
 
-class ListFragmentViewModel @Inject constructor(val listUC: ListUC) : ViewModel(), ListUCContract.ListUCOut,ListContract.ListViewModel {
+class ListFragmentViewModel @Inject constructor(val listUC: ListUC) : ViewModel(), ListUCContract.ListUCOut, ListContract.ListViewModel {
 
 
     override fun publishListResults(list: MutableList<ListDM>) {
