@@ -30,13 +30,6 @@ abstract class BasicFragment <VM : ViewModel, B: ViewDataBinding> : Fragment(), 
         return binding?.root
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
 
     private fun bindLayout(inflater: LayoutInflater, container: ViewGroup?){
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)

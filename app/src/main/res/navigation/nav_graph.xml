@@ -7,12 +7,6 @@
         android:id="@+id/listFragment"
         android:name="erevacation.com.userlist_lifecycle.ui.homescreen.list.ListFragment"
         android:label="ListFragment">
-        <action
-            android:id="@+id/action_listFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="erevacation.com.userlist_lifecycle.ui.homescreen.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+
 </navigation>

@@ -6,11 +6,9 @@ import android.arch.lifecycle.ViewModel
 import javax.inject.Inject
 
 
-
-
 class HomeActivityViewModel @Inject constructor() : ViewModel(), HomeContract.HomeViewModel {
 
-
+    private var view: HomeContract.HomeView? = null
     private var name: MutableLiveData<String>? = null
     fun getUsers(): LiveData<String>? {
         if (name == null) {

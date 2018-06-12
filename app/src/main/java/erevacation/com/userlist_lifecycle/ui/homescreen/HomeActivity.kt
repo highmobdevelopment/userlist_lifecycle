@@ -1,14 +1,11 @@
 package erevacation.com.userlist_lifecycle.ui.homescreen
 
-import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.os.PersistableBundle
+import androidx.navigation.fragment.NavHostFragment
 import erevacation.com.userlist_lifecycle.R
 import erevacation.com.userlist_lifecycle.basic.BasicActivity
 import erevacation.com.userlist_lifecycle.databinding.ActivityHomeBinding
-import android.arch.lifecycle.ViewModelProviders
-
-
 
 
 class HomeActivity : BasicActivity<HomeActivityViewModel, ActivityHomeBinding>(), HomeContract.HomeView {
@@ -19,8 +16,13 @@ class HomeActivity : BasicActivity<HomeActivityViewModel, ActivityHomeBinding>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(HomeActivityViewModel::class.java)
-        viewModel?.getUsers()?.observe(this, Observer { user ->  binding!!.name.text = user})
+        //viewModel = ViewModelProviders.of(this).get(HomeActivityViewModel::class.java)
+        //viewModel?.getUsers()?.observe(this, Observer { user ->  binding!!.name.text = user})
+        setNavGraph()
     }
-    
+
+    private fun setNavGraph() {
+        val host: NavHostFragment = fragmentManager.
+                findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?: return
+    }
 }

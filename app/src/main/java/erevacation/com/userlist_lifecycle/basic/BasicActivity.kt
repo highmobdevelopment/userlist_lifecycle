@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -16,7 +17,7 @@ import javax.inject.Inject
 abstract class BasicActivity<VM: ViewModel, B: ViewDataBinding> : AppCompatActivity(),
         CleanArchitectureContract.View, HasSupportFragmentInjector {
 
-    //@Inject
+    @Inject
     lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     protected var viewModel: VM? = null
