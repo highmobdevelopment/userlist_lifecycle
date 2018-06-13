@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.erevacation.userlist_lifecycle"
+        applicationId "com.erevacation.userlistlifecycle"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 2

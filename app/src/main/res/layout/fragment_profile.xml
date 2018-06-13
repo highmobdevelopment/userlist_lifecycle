@@ -19,14 +19,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/relativeLayout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="45dp"
+            android:textSize="18sp"/>
+
         <ImageView
             android:id="@+id/profile_image"
             android:layout_width="@dimen/image_size_xxxxlarge"
             android:layout_height="@dimen/image_size_xxxxlarge"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="@dimen/margin_padding_size_small"
             android:layout_marginStart="@dimen/margin_padding_size_small"
             android:layout_marginTop="@dimen/margin_padding_size_xxxlarge"
+            android:layout_marginEnd="@dimen/margin_padding_size_small"
             android:background="@drawable/circular_shadow"
             android:padding="@dimen/margin_padding_size_small"
             android:scaleType="centerCrop"
@@ -40,9 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/profile_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="@dimen/margin_padding_size_small"
             android:layout_marginStart="@dimen/margin_padding_size_small"
             android:layout_marginTop="@dimen/margin_padding_size_small"
+            android:layout_marginEnd="@dimen/margin_padding_size_small"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/text_size_large"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +62,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1.5dp"
-            android:layout_marginEnd="@dimen/margin_padding_size_medium"
             android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:layout_marginEnd="@dimen/margin_padding_size_medium"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintBottom_toTopOf="@+id/profile_recycler_view"
             app:layout_constraintEnd_toEndOf="parent"
