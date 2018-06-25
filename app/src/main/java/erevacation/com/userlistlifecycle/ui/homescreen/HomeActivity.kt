@@ -15,8 +15,6 @@ class HomeActivity : BasicActivity<HomeActivityViewModel, ActivityHomeBinding>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //viewModel = ViewModelProviders.of(this).get(HomeActivityViewModel::class.java)
-        //viewModel?.getUsers()?.observe(this, Observer { user ->  binding!!.name.text = user})
         setNavGraph()
     }
 

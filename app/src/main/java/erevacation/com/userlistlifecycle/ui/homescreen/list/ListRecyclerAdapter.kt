@@ -9,12 +9,12 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import erevacation.com.userlistlifecycle.R
 import erevacation.com.userlistlifecycle.databinding.ViewHolderListBinding
-import erevacation.com.userlistlifecycle.datamodel.ListDM
+import erevacation.com.userlistlifecycle.datamodel.UserDM
 
 class ListRecyclerAdapter()
     : RecyclerView.Adapter<ListRecyclerAdapter.ListViewHolder>() {
 
-    private val listInfo: MutableList<ListDM> = mutableListOf()
+    private val listInfo: MutableList<UserDM> = mutableListOf()
     private val profileInfoList: ArrayList<String> = arrayListOf()
 
 
@@ -63,7 +63,7 @@ class ListRecyclerAdapter()
         return listInfo.size
     }
 
-    fun updateList(contacts: MutableList<ListDM>) {
+    fun updateList(contacts: MutableList<UserDM>) {
         this.listInfo.clear()
         this.listInfo.addAll(contacts)
         notifyDataSetChanged()

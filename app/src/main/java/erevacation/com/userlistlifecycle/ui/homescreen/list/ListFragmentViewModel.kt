@@ -2,25 +2,29 @@ package erevacation.com.userlistlifecycle.ui.homescreen.list
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import erevacation.com.userlistlifecycle.datamodel.ListDM
+import android.content.Context
+import erevacation.com.userlistlifecycle.datamodel.UserDM
 import erevacation.com.userlistlifecycle.usecase.ListUC
 import erevacation.com.userlistlifecycle.usecase.ListUCContract
 import javax.inject.Inject
 
 class ListFragmentViewModel @Inject constructor(val listUC: ListUC) : ViewModel(), ListUCContract.ListUCOut, ListContract.ListViewModel {
 
-init {
-    listUC.setListUCOut(this)
-}
-    override fun publishListResults(list: MutableList<ListDM>) {
-        contacts.value = list
+
+    init {
+        listUC.setListUCOut(this)
     }
 
-    private lateinit var contacts: MutableLiveData<MutableList<ListDM>>
-    fun getUsers(): MutableLiveData<MutableList<ListDM>> {
+    override fun publishListResults(user: MutableList<UserDM>) {
+        contacts.value = user
+    }
+
+
+    private lateinit var contacts: MutableLiveData<MutableList<UserDM>>
+    fun getUsers(connected: Boolean): MutableLiveData<MutableList<UserDM>> {
         if (!::contacts.isInitialized) {
             contacts = MutableLiveData()
-            listUC.getList()
+                listUC.getData(connected)
         }
         return contacts
     }

@@ -7,6 +7,7 @@ import erevacation.com.userlistlifecycle.R
 import erevacation.com.userlistlifecycle.basic.BasicFragment
 import erevacation.com.userlistlifecycle.basic.arhitecture.ViewModelFactory
 import erevacation.com.userlistlifecycle.databinding.FragmentListBinding
+import erevacation.com.userlistlifecycle.extendedfunctions.isConnected
 import javax.inject.Inject
 
 class ListFragment : BasicFragment<ListFragmentViewModel, FragmentListBinding>(), ListContract.ListView {
@@ -21,9 +22,10 @@ class ListFragment : BasicFragment<ListFragmentViewModel, FragmentListBinding>()
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = getViewModel(viewModelFactory)
-        viewModel.getUsers().observe(this, Observer { user ->
+        viewModel.getUsers(binding!!.root.context.isConnected()).observe(this, Observer { user ->
             listAdapter.updateList(user ?: mutableListOf())
         })
+
         buildLayout()
     }
 
