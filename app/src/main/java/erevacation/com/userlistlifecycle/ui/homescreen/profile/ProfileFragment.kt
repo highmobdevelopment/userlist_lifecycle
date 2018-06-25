@@ -10,7 +10,7 @@ import erevacation.com.userlistlifecycle.R
 import erevacation.com.userlistlifecycle.basic.BasicFragment
 import erevacation.com.userlistlifecycle.basic.arhitecture.ViewModelFactory
 import erevacation.com.userlistlifecycle.databinding.FragmentProfileBinding
-import erevacation.com.userlistlifecycle.datamodel.ListDM
+import erevacation.com.userlistlifecycle.datamodel.UserDM
 import erevacation.com.userlistlifecycle.ui.homescreen.list.ListFragmentViewModel
 import javax.inject.Inject
 
@@ -65,7 +65,7 @@ class ProfileFragment : BasicFragment<ProfileFragmentViewModel, FragmentProfileB
 
     }
 
-    private fun setUserNameAndImage(info: ListDM?) {
+    private fun setUserNameAndImage(info: UserDM?) {
         val fullName: String = "${info?.name} ${info?.surname}"
         binding?.name?.text = fullName
         binding?.profileImage?.let { Glide.with(binding!!.root.context).load(info?.image).apply(RequestOptions.circleCropTransform()).into(it) }
